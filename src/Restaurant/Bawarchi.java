@@ -1,9 +1,17 @@
 package Restaurant;
 
+import Subject.WatABurger;
+
 public class Bawarchi implements IRestaurant, IObserver{
+    private WatABurger watABurger;
+
+    public Bawarchi(WatABurger watABurger){
+        this.watABurger = watABurger;
+    }
+
     @Override
     public void serve(String burger) {
-        System.out.println("Here Bawarchi! We serve wat-a-burgers: "+ burger);
+        System.out.println("Here Bawarchi! We serve wat-a-burger burgers: "+ burger);
     }
 
     @Override
@@ -12,8 +20,8 @@ public class Bawarchi implements IRestaurant, IObserver{
     }
 
     @Override
-    public void update(String burger) {
-        System.out.println(" Update Burger ");
+    public void update() {
+        String burger = watABurger.getBurger();
         serve(burger);
     }
 

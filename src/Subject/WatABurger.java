@@ -13,6 +13,7 @@ import java.util.Map;
 public class WatABurger implements ISubject{
     private Map<String,IObserver> observerMap;
     private String burger;
+    private String pizza;
 
     public WatABurger(){
         observerMap = new HashMap<>();
@@ -31,11 +32,15 @@ public class WatABurger implements ISubject{
     @Override
     public void notifyObserver() {
         for (var entity: observerMap.entrySet()) {
-            entity.getValue().update(burger);
+            entity.getValue().update();
         }
     }
 
     public void prepareBurger(String burger) {
         this.burger = burger;
     }
+    public void preparePizza(String pizza){ this.pizza = pizza; }
+
+    public String getBurger() { return burger; }
+    public String getPizza() { return pizza; }
 }

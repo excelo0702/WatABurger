@@ -1,6 +1,6 @@
 package Restaurant;
 
 public interface IObserver {
-    void update(String burger);
+    void update();
     String getId();
 }
